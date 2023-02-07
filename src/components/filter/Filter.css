@@ -1,0 +1,31 @@
+.filter {
+    display: flex;
+    align-items: center;
+    margin-left: 65px;
+    gap: 16px;
+}
+
+.filter-buttons__list {
+    height: inherit;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.filter-button {
+    height: inherit;
+    border-radius: 3px;
+    cursor: pointer;
+    border: none;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    padding: 10px 18px;
+    
+}
+
+.active {
+    background-color: #292929;
+    color: #fff;
+}

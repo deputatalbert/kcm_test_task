@@ -1,0 +1,29 @@
+.search {
+    width: 313px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: 85px;
+}
+
+.search__input {
+    outline: none;
+    width: 244px;
+    height: 40px;
+    border-radius: 3px;
+    border-color: #cacaca;
+    font-size: 16px;
+    margin-left: 13px;
+    padding-left: 15px;
+}
+
+::placeholder {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+  }
+
+  input:focus::placeholder {
+    color: transparent;
+  }
