@@ -4,8 +4,7 @@ import { FilterLabel } from "../../elements/FilterLabel/FilterLabel";
 import { setSearchValue } from "../../store/commentsActions";
 
 import "./Search.css";
-// eslint-disable-next-line no-unused-vars
-const Search = ({ setSearchValue, searchValue }) => {
+const Search = ({ setSearchValue }) => {
   const [name, setName] = useState("");
 
   const handleNameChange = (e) => {

@@ -1,19 +1,11 @@
 import React from "react";
 import CommentCard from "../commentCard/CommentCard";
-import { connect } from "react-redux";
 import "./CommentList.css";
 
-const CommentList = ({ comments, filter, searchValue }) => {
-  const filteredComments = comments.filter((comment) => {
-    return (
-      comment.email.includes(filter) &&
-      comment.name.toLowerCase().includes(searchValue.toLowerCase())
-    );
-  });
-
+const CommentList = ({ comments }) => {
   return (
     <div className="comments-list">
-      {filteredComments.map((comment) => (
+      {comments.map((comment) => (
         <CommentCard
           key={comment.id}
           name={comment.name}
@@ -25,10 +17,4 @@ const CommentList = ({ comments, filter, searchValue }) => {
   );
 };
 
-const mapStateToProps = (state) => ({
-  comments: state.comments,
-  filter: state.filter,
-  searchValue: state.searchValue,
-});
-
-export default connect(mapStateToProps)(CommentList);
+export default CommentList;

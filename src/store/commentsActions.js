@@ -23,9 +23,12 @@ export const setSearchValue = (searchValue) => {
 
 export const fetchComments = () => (dispatch) => {
   fetch("https://jsonplaceholder.typicode.com/comments")
-    .then((res) => res.json())
+    .then((res) => {
+      if (res.status === 200) return res.json();
+      return null;
+    })
     .then((comments) => {
-      return dispatch(setComments(comments));
+      if (comments) return dispatch(setComments(comments));
     })
     .catch((err) => console.error(err));
 };

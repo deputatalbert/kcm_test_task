@@ -4,7 +4,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { Header } from "./components/header/Header";
 import { fetchComments } from "./store/commentsActions";
 import { setFilter } from "./store/commentsActions";
-import CommentList from "./components/commentList/CommentList";
+import CommentListContainer from "./containers/CommentListContainer";
 import "./App.css";
 
 const App = ({ fetchComments, filter, setFilter }) => {
@@ -33,7 +33,7 @@ const App = ({ fetchComments, filter, setFilter }) => {
   return (
     <div className="page">
       <Header />
-      <CommentList />
+      <CommentListContainer />
     </div>
   );
 };
