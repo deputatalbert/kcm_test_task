@@ -1,11 +1,15 @@
 import React from "react";
-import { connect } from "react-redux";
+import { useSelector } from "react-redux";
 import CommentList from "../components/commentList/CommentList";
 
-const CommentListContainer = ({ comments, filter, searchValue }) => {
+const CommentListContainer = () => {
+  const comments = useSelector((state) => state.comments);
+  const filters = useSelector((state) => state.filter);
+  const searchValue = useSelector((state) => state.searchValue);
+
   const filteredComments = comments.filter((comment) => {
     return (
-      comment.email.includes(filter) &&
+      comment.email.includes(filters) &&
       comment.name.toLowerCase().includes(searchValue.toLowerCase())
     );
   });
@@ -13,10 +17,4 @@ const CommentListContainer = ({ comments, filter, searchValue }) => {
   return <CommentList comments={filteredComments} />;
 };
 
-const mapStateToProps = (state) => ({
-  comments: state.comments,
-  filter: state.filter,
-  searchValue: state.searchValue,
-});
-
-export default connect(mapStateToProps)(CommentListContainer);
+export default CommentListContainer;

@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { connect } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useLocation, useNavigate } from "react-router-dom";
 import { Header } from "./components/header/Header";
 import { fetchComments } from "./store/commentsActions";
@@ -7,28 +7,31 @@ import { setFilter } from "./store/commentsActions";
 import CommentListContainer from "./containers/CommentListContainer";
 import "./App.css";
 
-const App = ({ fetchComments, filter, setFilter }) => {
+const App = () => {
   const location = useLocation();
   const navigate = useNavigate();
+
+  const filters = useSelector((state) => state.filter);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const queryParams = new URLSearchParams(location.search);
     const filterFromURL = queryParams.get("filter");
 
     if (filterFromURL) {
-      setFilter(filterFromURL);
+      dispatch(setFilter(filterFromURL));
     }
   }, [location, setFilter]);
 
   useEffect(() => {
-    fetchComments();
+    dispatch(fetchComments());
   }, [fetchComments]);
 
   useEffect(() => {
     const queryParams = new URLSearchParams(location.search);
-    queryParams.set("filter", filter);
+    queryParams.set("filter", filters);
     navigate("/?" + queryParams.toString(), { replace: true });
-  }, [filter]);
+  }, [filters]);
 
   return (
     <div className="page">
@@ -38,13 +41,4 @@ const App = ({ fetchComments, filter, setFilter }) => {
   );
 };
 
-const mapStateToProps = (state) => ({
-  filter: state.filter,
-});
-
-const mapDispatchToProps = {
-  fetchComments,
-  setFilter,
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default App;
