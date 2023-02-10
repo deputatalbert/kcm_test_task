@@ -3,6 +3,8 @@ import { FilterLabel } from "../../elements/FilterLabel/FilterLabel";
 import "./Search.css";
 
 const Search = ({ onHandleNameChange }) => {
+  //TODO: Зачем еще и внутренний стейт если значение хранится в редаксе?
+  // если это задел под универсальный компонент он не должен лежать в компонентах конкретной фичи
   const [name, setName] = useState("");
 
   const handleNameChange = (e) => {

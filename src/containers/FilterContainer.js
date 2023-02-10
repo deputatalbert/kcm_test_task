@@ -12,7 +12,6 @@ const FilterContainer = () => {
   const onSetFilter = (item) => {
     dispatch(setFilter(item === filters ? "" : item));
   };
-
   const filterValues = Array.from(
     new Set(comments.map((comment) => getTopLevelDomain(comment.email)))
   );

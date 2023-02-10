@@ -14,10 +14,12 @@ const App = () => {
   const filters = useSelector((state) => state.filter);
   const dispatch = useDispatch();
 
+  // TODO: строка поиска хранится только в редакс, а фильтры по домену и в редаксе и url
+  // два источника истины и потребность в синхронизации
   useEffect(() => {
     const queryParams = new URLSearchParams(location.search);
     const filterFromURL = queryParams.get("filter");
-
+    // TODO: а если очистить? перейти назад? не очистится
     if (filterFromURL) {
       dispatch(setFilter(filterFromURL));
     }
@@ -42,3 +44,10 @@ const App = () => {
 };
 
 export default App;
+
+// TODO: хорошо
+// домены для фильтра генерятся на основе данных
+// нет деление на умных огромных контейнеров  и тупых компонентов, есть разделение логики
+// разделение логики  фильтра и отображения комментариев
+// 1 h1
+// использование URLSearchParams
