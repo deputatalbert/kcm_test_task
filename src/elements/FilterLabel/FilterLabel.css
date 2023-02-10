@@ -1,6 +1,9 @@
 .label {
     font-weight: 400;
+    /*TODO: размеры лучше делать через rem от body font-size */
     font-size: 18px;
+     /* а свойства зависящие от родителя в em*/
     line-height: 21px;
     color: #fff;
+    /*TODO: лучше бы чтобы текст не переносился на вторую строку*/
 }

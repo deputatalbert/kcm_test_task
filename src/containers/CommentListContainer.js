@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import CommentList from "../components/commentList/CommentList";
-
+// TODO: почему контейнера js а не jsx?
 const CommentListContainer = () => {
   const comments = useSelector((state) => state.comments);
   const filters = useSelector((state) => state.filter);

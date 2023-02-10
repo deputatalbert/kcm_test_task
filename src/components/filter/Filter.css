@@ -6,6 +6,7 @@
 }
 
 .filter-buttons__list {
+    /* TODO: ?*/
     height: inherit;
     display: flex;
     flex-wrap: wrap;
@@ -13,11 +14,13 @@
 }
 
 .filter-button {
+    /* TODO: зачем это? видела в нескольких блоках */
     height: inherit;
     border-radius: 3px;
     cursor: pointer;
     border: none;
-    font-family: 'Roboto';
+    /* TODO: разве не все что есть на старнице roboto, и необходимо значение по умолчанию */
+    font-family: 'Roboto', sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 18px;
